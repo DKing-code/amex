@@ -1,6 +1,17 @@
+
+
 @tailwind base;
+
+
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Lato&display=swap');
+
+.courierfont{
+  font-family: "Courier Prime", monospace;
+}
+
 
 .card-bg{
     background-image: url('./assets//images/cd.jpg');
@@ -20,7 +31,7 @@ a, a:hover, a:active{
 }
 
 
-:root {
+/* :root {
     --black-gradient: linear-gradient(
       144.39deg,
       #ffffff -278.56%,
@@ -99,9 +110,9 @@ a, a:hover, a:active{
   .sidebar {
     -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
     animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
+  } */
   
-  @-webkit-keyframes slide-top {
+  /* @-webkit-keyframes slide-top {
     0% {
       -webkit-transform: translateY(100px);
       transform: translateY(100px);
@@ -162,4 +173,4 @@ a, a:hover, a:active{
       overflow: hidden;
       text-overflow: ellipsis;
     }
-  }
+  } */

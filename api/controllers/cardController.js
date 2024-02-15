@@ -1,11 +1,9 @@
 const CardModel = require('../model/cardModel')
 
-
-
-
 const getAllCards = async(req,res)=>{
     try{
-        const cards = await CardModel.find().populate('User')
+        const cards = await CardModel.find()
+        // .populate('User')
         res.json(cards)
     }catch(err){
         res.json({msg:err.message})

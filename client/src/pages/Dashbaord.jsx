@@ -69,22 +69,22 @@ var currentMinute = currentTime.getMinutes();
       <TransferModal openTransferModal={openTrasnfer} closeTrasnferModal={handleTransferClose} />
       <DepositModal openModal={open} closeModal={handleClose} />
 
-      <div className="bg-gradient-to-r from-blue-900 to-blue-500 p-5 mx-2 md:mx-0 rounded-md text-white shadow-lg">
+      {/* <div className="bg-gradient-to-r from-blue-900 to-blue-500 p-5 mx-2 md:mx-0 rounded-md text-white shadow-lg">
         <h1 className="md:text-3xl text-xl">Welcome {data?.user?.firstname} {data?.user?.lastname}</h1>
         <div>{date} {currentHour}:{currentMinute}</div>
         <hr className="my-2"/>
         <p className="md:text-xl font-bold"><span>Account # : </span> {data?.accountNumber}</p>
-      </div>
+      </div> */}
 
       {/* content here */}
       <div className="mt-2 mb-5 mx-2">
             {/* cards */}
-            <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-5" >
+            {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-5" >
               <BalanceCard title={"Available Balance"} amount={data?.balance} currency={data?.currency} bkg={'red-400'} txt={'white'}/>
               <BalanceCard title={"Savings"} amount={data?.total} currency={data?.currency} bkg={'card-bg'}/>
               <BalanceCard title={"Fixed Deposit"} amount={data?.loanBalance}  currency={data?.currency} bkg={'card-bg'}/>
               <BalanceCard title={"Stock"} amount={data?.stock}  currency={data?.currency} bkg={'card-bg'}/>
-            </div>
+            </div> */}
         <div className="grid lg:grid-cols-3 md:grid-cols-1 md:gap-5 ">
           <div className="md:col-span-2 md:order-first ">
             <div className="rounded-md md:col-span-2 grid md:grid-cols-2 gap-3">

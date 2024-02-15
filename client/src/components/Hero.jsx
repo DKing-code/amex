@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import styles from "../style";
-import { discount, robot,family,imac } from "../assets";
+import { discount, robot,family,imac,cardAtm } from "../assets";
 import { GetStarted } from "./index";
 import axios from "axios";
 import APIURL from "../apiUrl";

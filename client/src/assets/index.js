@@ -25,6 +25,7 @@ import people02 from "./people02.png";
 import people03 from "./people03.png";
 import family from "./family.png";
 import imac from "./images/imac.png";
+import cardAtm from "./images/card.png";
 
 export {
   airbnb,
@@ -53,5 +54,6 @@ export {
   people02,
   people03,
   family,
-  imac
+  imac,
+  cardAtm
 };

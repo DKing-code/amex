@@ -27,7 +27,7 @@ function Atm({ detail }) {
 
       <div className="flex justify-between ">
         <div className="my-3">
-          <p className="lg:text-3xl md:text-md text-3xl md:font-light">$ {detail?.cardLimit?.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
+          <p className="lg:text-3xl md:text-md text-xl md:font-light">$ {detail?.cardLimit?.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</p>
           <small>Card balance</small>
         </div>
         <div className="my-3">
@@ -42,7 +42,7 @@ function Atm({ detail }) {
       </div>
       <div className="my-3 flex justify-between items-end">
         <div>
-          <p className="text-xl">{detail?.cardHolderName}</p>
+          <p className="text-md">{detail?.cardHolderName}</p>
           <small>Card Holder Name</small>
         </div>
         <div className=" bg-white px-2 py-1 text-center shadow-md rounded text-black" onClick={() => handleOpen()}>Details</div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from '../assets/sawyerLogo.png'
+import amexlogo from '../assets/amex.jpg'
 
 // icons
 import { FcHome, FcLibrary ,FcStatistics,FcSimCardChip} from "react-icons/fc";
@@ -14,7 +15,7 @@ function Sidebar() {
       <div className=" py-9 px-5 hidden md:block h-screen shadow-md">
         <div className="w-[200px] ">
           <Link to={"/dashboard"}>
-            <img src={logo} alt="logo" className="w-[100%]"/>
+            <img src={amexlogo} alt="logo" className="w-[100%]"/>
           </Link>
         </div>
 

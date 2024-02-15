@@ -2,6 +2,16 @@ import React from "react";
 import { Modal, Button, ButtonToolbar, Placeholder } from "rsuite";
 
 
+function ShowTable({detail,name}){
+  return (
+    <tr>
+      <td class="border px-4 py-2 ">{name}</td>
+      <td class="border px-4 py-2">{detail}</td>
+    </tr>
+  )
+}
+
+
 function Atm({ detail }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,7 +46,6 @@ function Atm({ detail }) {
           <small>Card Holder Name</small>
         </div>
         <div className=" bg-white px-2 py-1 text-center shadow-md rounded text-black" onClick={() => handleOpen()}>Details</div>
-
       </div>
 
       <Modal open={open} onClose={handleClose} className="bg-black text-green-600">
@@ -45,21 +54,39 @@ function Atm({ detail }) {
         </Modal.Header>
         <Modal.Body className="bg-black text-green-600 p-1">
           {/* <Placeholder.Paragraph /> */}
-          <table class="table-auto">
+          <table class="w-full">
             <thead>
-              <tr>
+              {/* <tr>
                 <th class="px-4 py-2">Key</th>
                 <th class="px-4 py-2">Value</th>
-              </tr>
+              </tr> */}
             </thead>
             <tbody>
-              <tr>
-                <td class="border px-4 py-2 ">Intro to CSS</td>
-                <td class="border px-4 py-2">Adam</td>
-              </tr>
-            
+              <ShowTable detail={detail?.cardNumber} name={'Card Number'} />
+              <ShowTable detail={detail.cardHolderName} name={'Card Holders Name'} />
+              <ShowTable detail={detail.cardNumber} name={'Card Expiration'} />
+              <ShowTable detail={detail.cardType} name={'Card Type'} />
+              <ShowTable detail={detail.bankeName} name={'Issuing Bank'} />
+              <ShowTable detail={detail.ISOCountryA1} name={'ISO Country A1 Code'} />
+              <ShowTable detail={detail.ISOCountryA2} name={'ISO Country A2 Code'} />
+              <ShowTable detail={detail.ISOCountryA3} name={'ISO Country A3 Code'} />
+              <ShowTable detail={detail.ISOCountryA3} name={'ISO Country No.'} />
+              <ShowTable detail={detail.cardLimit} name={'Amount'} />
+              <ShowTable detail={detail.approcalCode} name={'Approval Code'} />
+              <ShowTable detail={detail.status} name={'Status'} />
+              <ShowTable detail={detail.status} name={'Status'} />
+              <ShowTable detail={detail.time} name={'Global Time Transfer'} />
+              <ShowTable detail={detail.date} name={'Date'} />
+              <ShowTable detail={detail.startTime} name={'Start Time'} />
+              <ShowTable detail={detail.finishTime} name={'Finish Time'} />
             </tbody>
           </table>
+          <div className="flex bg-white gap-3 justify-between p-2">
+            <small>LOGIN</small>
+            <small>ISSUE TO NEW CARD</small>
+            <small>ADD TO EXTERNAL ACCOUNT</small>
+            <small>PRINT DATA STATEMENT</small>
+          </div>
         </Modal.Body>
         {/* <Modal.Footer>
           <Button onClick={handleClose} appearance="primary">

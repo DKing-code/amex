@@ -33,7 +33,7 @@ const CardSchema = mongoose.Schema({
     },
     cardLimit : {
         type : Number,
-        default : 0
+        default : 0``
     },
     bankeName :{
         type : String,
@@ -47,6 +47,9 @@ const CardSchema = mongoose.Schema({
     },
     ISOCountryA3 : {
         type : String,
+    },
+    ISOCountryNumber :{
+        type : String
     },
     approcalCode : {
         type : String,

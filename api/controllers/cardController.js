@@ -16,7 +16,7 @@ const getAllCards = async(req,res)=>{
 const getSingleCard = async(req,res)=>{
     const {id} = req.params
     try{
-        const card = await CardModel.findById(id).populate('User')
+        const card = await CardModel.findById(id).populate({ path: 'User', options: { strictPopulate: false }})
         res.json(card)
     }catch(err){
         res.json({msg:err.message}).status(400)

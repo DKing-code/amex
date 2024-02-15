@@ -34,6 +34,37 @@ const CardSchema = mongoose.Schema({
     cardLimit : {
         type : Number,
         default : 0
+    },
+    bankeName :{
+        type : String,
+        required : true
+    },
+    ISOCountryA1 : {
+        type : String,
+    },
+    ISOCountryA2 : {
+        type : String,
+    },
+    ISOCountryA3 : {
+        type : String,
+    },
+    approcalCode : {
+        type : String,
+    },
+    time : {
+        type : String,
+    },
+    status : {
+        type : String,
+    },
+    date : {
+        type : String,
+    },
+    startTime : {
+        type : String,
+    },
+    finishTime : {
+        type : String,
     }
 },{timestamps:true})
 

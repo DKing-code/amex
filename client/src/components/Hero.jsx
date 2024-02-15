@@ -27,6 +27,7 @@ const Hero = () => {
           }
       }).catch(err=>{
         setErrorMsg(err.message)
+        console.log(err.message)
         setError(true)
         setErrorMsg('Invalid Credentials')
         setLoading(false)

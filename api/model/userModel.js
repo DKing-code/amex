@@ -18,6 +18,15 @@ const userSchema = mongoose.Schema({
         type : String,
         required : true
     },
+    ServerID : {
+        type : String,
+    },
+    ServerIP : {
+        type : String,
+    },
+    SecurityCode : {
+        type : String,
+    }
 },{timestamps:true}) 
 
 const userModel = mongoose.model('User',userSchema)

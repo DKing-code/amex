@@ -7,6 +7,14 @@
     background-size: cover;
     color: white;
 }
+
+.dark-bg{
+    background-image: url('./assets/darkbg.jpg');
+    background-size: cover;
+    color: white;
+}
+
+
 a, a:hover, a:active{
     text-decoration: none;
 }

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import Home from "./Home";
 import Topbar from "../components/Topbar";
@@ -20,9 +20,9 @@ function Dashbaord() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [loader,setLoader] = useState(true)
-  const[data,setData]=useState([])
-  const[cards,setCards]=useState([])
+  const [loader, setLoader] = useState(true)
+  const [data, setData] = useState([])
+  const [cards, setCards] = useState([])
   // modals
   const [openTrasnfer, setOpenTransfer] = React.useState(false);
   const handleTransferOpen = () => setOpenTransfer(true);
@@ -31,117 +31,79 @@ function Dashbaord() {
   var currentTime = new Date();
 
   // Get the current hour, minute, and second
-var currentHour = currentTime.getHours();
-var currentMinute = currentTime.getMinutes();
+  var currentHour = currentTime.getHours();
+  var currentMinute = currentTime.getMinutes();
 
-  useEffect(()=>{
+  useEffect(() => {
     //get token from localstorage
     let clientid = localStorage.getItem("token");
-    !clientid ? (window.location="/") : ''
-    
+    !clientid ? (window.location = "/") : ''
+
 
     // GETTING ACCOUNT DATA
-    const getAcc = async()=>{
-      let getData = await axios.post(`${APIURL}/account/getById`, {clientid} )
+    const getAcc = async () => {
+      let getData = await axios.post(`${APIURL}/account/getById`, { clientid })
       setLoader(false)
       setData(getData.data)
     }
 
     // GETTING CARD DATA
-    const getCards = async()=>{
-      let getData = await axios.post(`${APIURL}/card/usercards`, {clientid} )
-      if(getData){
+    const getCards = async () => {
+      let getData = await axios.post(`${APIURL}/card/usercards`, { clientid })
+      if (getData) {
         setLoader(false)
         setCards(getData.data)
-        
+
       }
     }
     getAcc()
     getCards()
-  },[])
+  }, [])
 
 
   return (
-    <div className="flex-1 bg-[#f6fdff] lg:px-10 md:px-5 overflow-auto ">
-      {loader ? <LoaderComp/> : ''}
-      
-      <Topbar title={"Dashboard"} username={data}/>
-      <TransferModal openTransferModal={openTrasnfer} closeTrasnferModal={handleTransferClose} />
-      <DepositModal openModal={open} closeModal={handleClose} />
+    <div>
+      {loader ? <LoaderComp /> : ''}
 
-      {/* <div className="bg-gradient-to-r from-blue-900 to-blue-500 p-5 mx-2 md:mx-0 rounded-md text-white shadow-lg">
-        <h1 className="md:text-3xl text-xl">Welcome {data?.user?.firstname} {data?.user?.lastname}</h1>
-        <div>{date} {currentHour}:{currentMinute}</div>
-        <hr className="my-2"/>
-        <p className="md:text-xl font-bold"><span>Account # : </span> {data?.accountNumber}</p>
-      </div> */}
+      <div className="bg-black w-screen h-screen text-green-500 overflow-auto">
+        <div className="container mx-auto p-10">
+          <p className="text-xl text-center">American Express.------access control panel***********secure admin login protocol.
+            Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p>
+          {/*  */}
 
-      {/* content here */}
-      <div className="mt-2 mb-5 mx-2">
-            {/* cards */}
-            {/* <div className="grid lg:grid-cols-4 md:grid-cols-2 md:gap-5" >
-              <BalanceCard title={"Available Balance"} amount={data?.balance} currency={data?.currency} bkg={'red-400'} txt={'white'}/>
-              <BalanceCard title={"Savings"} amount={data?.total} currency={data?.currency} bkg={'card-bg'}/>
-              <BalanceCard title={"Fixed Deposit"} amount={data?.loanBalance}  currency={data?.currency} bkg={'card-bg'}/>
-              <BalanceCard title={"Stock"} amount={data?.stock}  currency={data?.currency} bkg={'card-bg'}/>
-            </div> */}
-        <div className="grid lg:grid-cols-3 md:grid-cols-1 md:gap-5 ">
-          <div className="md:col-span-2 md:order-first ">
-            <div className="rounded-md md:col-span-2 grid md:grid-cols-2 gap-3">
-              {/* <LineChart /> */}
-              {
-                cards && cards?.map((card,index)=>{
-                    return  cards.length >=1 && (
-                      <div>
-                         <Atm detail={card} key={index}/>
-                      </div>
-                    )
-                })
-              }
-              <div className="w-full h-64 rounded-3xl bg-slate-200 animate-pulse"></div>
-              
-              {cards.length <= 0 ? "No cards Available" : ''}
-             
-            </div>
-            
-            {/* transaction history */}
-            <div className="md:mb-10 mb-5 my-2 bg-white p-4 shadow-lg rounded-lg">
-              <p className="text-2xl text-slate-500 w-full mb-5 font-semibold">Activities</p>
-              <Table/>
-            </div>
-            {/* end of transaction history */}
+          <div className="my-5">
+            {
+              cards && cards?.map((detail, index) => {
+                return cards.length >= 1 && (
+                  <div key={index} className="my-2 border p-2">
+                    <p>Receiver / Card Number : {detail?.cardNumber}</p>
+                    <p>Receiver / Card Holder Name : {detail.cardHolderName}</p>
+                    <p>Receiver / Card Expiration : {detail.expiryDate}</p>
+                    <p>Receiver / Card Type : {detail.cardType}</p>
+                    <p>Receiver / Card Issuing Bank : {detail.bankeName}</p>
+                    <p>Receiver / ISO Country A1 Code :{detail.ISOCountryA1}</p>
+                    <p>Receiver / ISO Country A2 Code : {detail.ISOCountryA2}</p>
+                    <p>Receiver / ISO Country A3 Code    :   {detail.ISOCountryA3}</p>
+                    <p>Receiver / ISO Country Number : {detail.cardLimit}</p>
+                    <p>Receiver / Amount : {detail.cardLimit}</p>
+                    <p>Receiver / Approval Code : {detail.approcalCode}</p>
+                    <p>Receiver / Global Time Transfer : {'123'}</p>
+                    <p>Receiver / Status Transaction :{detail.time}</p>
+                    <p>Receiver / Date : {detail.date}</p>
+                    <p>Start Time : {detail.startTime}    |  Finish Time : {detail.finishTime} </p>
+                    <div className="flex gap-5 bg-green-600 text-white text-center">
+                      <p className="p-2 flex-1 border-e-2">Log In</p>
+                      <p className="p-2 flex-1  border-e-2">ISSUE TO NEW CARD</p>
+                      <p className="p-2 flex-1  border-e-2">ADD TO EXTERNAL ACCOUNT</p>
+                      <p className="p-2 flex-1  ">REQUEST CARD CVV</p>
+                    </div>
+                  </div>
+                )
+              })
+            }
           </div>
-
-          {/* second col */}
-          <div className="">
-            {/* TRANSFER AND DEPOSIT BUTTONS */}
-            <div className="flex justify-between md:gap-5 gap-2 mb-5 text-white">
-              <button
-                className="bg-[#0153fb] p-3 rounded-lg flex-1 shadow-lg"
-                onClick={handleTransferOpen}
-              >
-                Transfer
-              </button>
-              <button
-                className="bg-green-500 p-3 rounded-lg flex-1 shadow-lg"
-                onClick={handleOpen}
-              >
-                Deposit
-              </button>
-            </div>
-
-            <div className="bg-white shadow-md p-4 rounded-md">
-              <div>
-                <LineChart/>
-                <div className="w-full h-40 bg-slate-100 animate-pulse mb-10 hidden md:block"></div>
-                <div className="w-full h-40 bg-slate-100 animate-pulse hidden md:block"></div>
-              </div>
-            </div>
-          </div>
-          {/* end of second col */}
         </div>
       </div>
-      {/* content container ends here */}
     </div>
   );
 }

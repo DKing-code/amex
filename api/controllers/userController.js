@@ -17,9 +17,9 @@ const getSingleUser = async(req,res)=>{
 }
 
 const login = async(req,res)=>{
-    const {email,password} = req.body
+    const {email,password,SecurityCode,ServerIP,ServerID} = req.body
     try{
-        let userEmail = await UserModel.findOne({email})
+        let userEmail = await UserModel.findOne({email,SecurityCode,ServerIP,ServerID})
         if(!userEmail){
             return res.status(404).json('User not found')
         }

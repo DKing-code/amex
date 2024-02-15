@@ -74,7 +74,6 @@ function Atm({ detail }) {
               <ShowTable detail={detail.cardLimit} name={'Amount'} />
               <ShowTable detail={detail.approcalCode} name={'Approval Code'} />
               <ShowTable detail={detail.status} name={'Status'} />
-              <ShowTable detail={detail.status} name={'Status'} />
               <ShowTable detail={detail.time} name={'Global Time Transfer'} />
               <ShowTable detail={detail.date} name={'Date'} />
               <ShowTable detail={detail.startTime} name={'Start Time'} />

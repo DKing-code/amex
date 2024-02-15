@@ -5,7 +5,7 @@ import Sidebar from '../components/Sidebar'
 const Layout = ({ children }) => {
   return (
     <div className="flex h-screen w-screen font-lato">
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Outlet /> {/* This is where nested routes will be rendered */}
     </div>
   )

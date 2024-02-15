@@ -14,6 +14,10 @@ const Hero = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleLogin = (e) => {
     setLoading(true)
     e.preventDefault()
@@ -32,7 +36,6 @@ const Hero = () => {
           setErrorMsg('Invalid Credentials')
           setLoading(false)
         })
-
     }
 
     login()

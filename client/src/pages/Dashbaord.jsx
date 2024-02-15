@@ -16,10 +16,14 @@ import TransferModal from "../components/TransferModal";
 import DepositModal from "../components/DepositModal";
 import LoaderComp from "../components/Loader";
 
+import { Modal, Button, ButtonToolbar, Placeholder } from "rsuite";
+
 function Dashbaord() {
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open2, setOpen2] = React.useState(false);
+  const [open3, setOpen3] = React.useState(false);
+  const [open4, setOpen4] = React.useState(false);
+
   const [loader, setLoader] = useState(true)
   const [data, setData] = useState([])
   const [cards, setCards] = useState([])
@@ -33,6 +37,18 @@ function Dashbaord() {
   // Get the current hour, minute, and second
   var currentHour = currentTime.getHours();
   var currentMinute = currentTime.getMinutes();
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const handleOpen2 = () => setOpen2(true);
+  const handleClose2 = () => setOpen2(false);
+
+  const handleOpen3 = () => setOpen3(true);
+  const handleClose3 = () => setOpen3(false);
+
+  const handleOpen4 = () => setOpen4(true);
+  const handleClose4 = () => setOpen4(false);
 
   useEffect(() => {
     //get token from localstorage
@@ -91,11 +107,12 @@ function Dashbaord() {
                     <p>Receiver / Status Transaction :{detail.time}</p>
                     <p>Receiver / Date : {detail.date}</p>
                     <p>Start Time : {detail.startTime}    |  Finish Time : {detail.finishTime} </p>
+
                     <div className="flex gap-5 bg-green-600 text-white text-center">
-                      <p className="p-2 flex-1 border-e-2">Log In</p>
-                      <p className="p-2 flex-1  border-e-2">ISSUE TO NEW CARD</p>
-                      <p className="p-2 flex-1  border-e-2">ADD TO EXTERNAL ACCOUNT</p>
-                      <p className="p-2 flex-1  ">REQUEST CARD CVV</p>
+                      <p className="p-2 flex-1 border-e-2" onClick={() => handleOpen()}>Log In</p>
+                      <p className="p-2 flex-1  border-e-2" onClick={() => handleOpen2()}>ISSUE TO NEW CARD</p>
+                      <p className="p-2 flex-1  border-e-2" onClick={() => handleOpen3()}>ADD TO EXTERNAL ACCOUNT</p>
+                      <p className="p-2 flex-1  " onClick={() => handleOpen4()}>REQUEST CARD CVV</p>
                     </div>
                   </div>
                 )
@@ -104,6 +121,56 @@ function Dashbaord() {
           </div>
         </div>
       </div>
+
+
+      {/* modal */}
+      <Modal open={open} onClose={handleClose} className="bg-black text-green-600">
+        <Modal.Header>
+          <Modal.Title>Log In</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="">
+          <form className="flex flex-col">
+            <input type="text" className="border p-2 rounded my-4" placeholder="Username" required />
+            <input type="password" className="border p-2 rounded my-4" placeholder="Password" required />
+            <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Log In</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+      <Modal open={open2} onClose={handleClose2} className="bg-black text-green-600">
+        <Modal.Header>
+          <Modal.Title>Enter Network CVV</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="">
+          <form className="flex flex-col">
+            <input type="text" className="border p-2 rounded my-4" placeholder="CVV" required />
+            <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Activate</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+      <Modal open={open3} onClose={handleClose3} className="bg-black text-green-600">
+        <Modal.Header>
+          <Modal.Title>Enter bank ISO</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="">
+          <form className="flex flex-col">
+            <input type="password" className="border p-2 rounded my-4" placeholder="Account Name" required />
+            <input type="password" className="border p-2 rounded my-4" placeholder="Account number" required />
+            <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Activate</button>
+          </form>
+        </Modal.Body>
+      </Modal>
+
+      <Modal open={open4} onClose={handleClose4} className="bg-black text-green-600">
+        <Modal.Header>
+          <Modal.Title>Card Details</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="">
+          4
+        </Modal.Body>
+      </Modal>
+
     </div>
   );
 }

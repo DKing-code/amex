@@ -82,7 +82,7 @@ function Dashbaord() {
         <div className="container mx-auto md:w-[60%] md:p-10">
         <Typewriter
             words={["American Express.------access control panel***********secure admin login protocol. Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********"]}
-            loop={1}
+            loop={false}
             cursor
             cursorStyle='_'
             typeSpeed={40}

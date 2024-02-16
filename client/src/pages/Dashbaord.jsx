@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Sidebar from "../components/Sidebar";
-import Home from "./Home";
-import Topbar from "../components/Topbar";
-import LineChart from "../components/Chart";
-import BalanceCard from "../components/BalanceCard";
-import Atm from "../components/Atm";
+
 import axios from 'axios'
 import APIURL from "../apiUrl";
+import { Typewriter } from 'react-simple-typewriter'
 
 import CurrencyConverter from "../components/CurrencyConverter";
 import Table from "../components/Table";
@@ -50,6 +46,7 @@ function Dashbaord() {
   const handleOpen4 = () => setOpen4(true);
   const handleClose4 = () => setOpen4(false);
 
+
   useEffect(() => {
     //get token from localstorage
     let clientid = localStorage.getItem("token");
@@ -82,7 +79,18 @@ function Dashbaord() {
       {loader ? <LoaderComp /> : ''}
 
       <div className="bg-black w-screen h-screen text-green-500 overflow-auto courierfont">
-        <div className="container mx-auto w-[60%] md:p-10">
+        <div className="container mx-auto md:w-[60%] md:p-10">
+        <Typewriter
+            words={["American Express.------access control panel***********secure admin login protocol"]}
+            loop={0}
+            cursor
+            cursorStyle='_'
+            typeSpeed={40}
+            deleteSpeed={50}
+            delaySpeed={1000}
+
+          />
+
 
           <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
             Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p>
@@ -90,6 +98,7 @@ function Dashbaord() {
           {/*  */}
 
           <p className="text-white">
+            
             Network: American-express <br />
             Session Holder: ZIKO@245<br />
             ************Delivery Status: PEER -TO-PEER************ <br />
@@ -141,6 +150,14 @@ function Dashbaord() {
             }
           </div>
           <a href="./src/assets/78x3ghu.pdf" download>Download Report</a>
+          <p>
+          OS……………………………………………………………………… MAC <br />
+          Distribution Gen………………………………… 704.1889(Core) <br />
+          Kernel…………………………………………………………… 3.11.10093.7.4-e19.x12 19 <br />
+          Model……………………………………………………………… EFT APPROVED <br />
+          Connecting to system……………………… DONE (ev protocols) <br />
+          Global Time Transfer: NIL
+          </p>
         </div>
       </div>
 

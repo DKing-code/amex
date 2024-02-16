@@ -32,8 +32,7 @@ const CardSchema = mongoose.Schema({
         required : true
     },
     cardLimit : {
-        type : Number,
-        default : 0
+        type : String,
     },
     bankeName :{
         type : String,

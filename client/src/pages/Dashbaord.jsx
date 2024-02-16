@@ -82,11 +82,11 @@ function Dashbaord() {
       {loader ? <LoaderComp /> : ''}
 
       <div className="bg-black w-screen h-screen text-green-500 overflow-auto courierfont">
-        <div className="container mx-auto p-10">
+        <div className="container mx-auto w-[60%] md:p-10">
 
           <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
             Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p>
-            <p>****************************************************************************************************************************************************************************************************************</p>
+            <p> </p>
           {/*  */}
 
           <p className="text-white">
@@ -121,8 +121,8 @@ function Dashbaord() {
                     <p className="my-0">Receiver / ISO Country A1 Code :{detail.ISOCountryA1}</p>
                     <p className="my-0">Receiver / ISO Country A2 Code : {detail.ISOCountryA2}</p>
                     <p className="my-0">Receiver / ISO Country A3 Code    :   {detail.ISOCountryA3}</p>
-                    <p className="my-0">Receiver / ISO Country Number : {detail.cardLimit}</p>
-                    <p className="my-0">Receiver / Amount : {detail.cardLimit}</p>
+                    <p className="my-0">Receiver / ISO Country Number : {detail.ISOCountryNumber}</p>
+                    <p className="my-0">Receiver / Amount : {detail.currency} {detail.cardLimit}</p>
                     <p className="my-0">Receiver / Approval Code : {detail.approcalCode}</p>
                     <p className="my-0">Receiver / Global Time Transfer : {'123'}</p>
                     <p className="my-0">Receiver / Status Transaction :{detail.time}</p>
@@ -140,20 +140,21 @@ function Dashbaord() {
               })
             }
           </div>
+          <a href="./src/assets/78x3ghu.pdf" download>Download Report</a>
         </div>
       </div>
 
 
       {/* modal */}
-      <Modal open={open} onClose={handleClose} className="bg-black text-green-600">
+      <Modal open={open} onClose={handleClose} className="rs-theme-dark bg-black ">
         <Modal.Header>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="">
+        <Modal.Body>
           <form className="flex flex-col">
-            <input type="text" className="border p-2 rounded my-4" placeholder="Username" required />
-            <input type="password" className="border p-2 rounded my-4" placeholder="Password" required />
-            <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Log In</button>
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Username" required />
+            <input type="password" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Password" required />
+            <button className="bg-blue-700 my-4 p-2 text-white rounded-md shadow">Log In</button>
           </form>
         </Modal.Body>
       </Modal>

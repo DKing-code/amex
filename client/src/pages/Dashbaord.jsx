@@ -81,8 +81,8 @@ function Dashbaord() {
       <div className="bg-black w-screen h-screen text-green-500 overflow-auto courierfont">
         <div className="container mx-auto md:w-[60%] md:p-10">
         <Typewriter
-            words={["American Express.------access control panel***********secure admin login protocol"]}
-            loop={0}
+            words={["American Express.------access control panel***********secure admin login protocol. Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********"]}
+            loop={1}
             cursor
             cursorStyle='_'
             typeSpeed={40}
@@ -92,12 +92,13 @@ function Dashbaord() {
           />
 
 
-          <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
-            Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p>
-            <p> </p>
-          {/*  */}
+          {/* <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
+            Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p> */}
+           
+      
 
-          <p className="text-white">
+          <p className="text-white my-3">
+            <Typewriter/>
             
             Network: American-express <br />
             Session Holder: ZIKO@245<br />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import axios from 'axios'
 import APIURL from "../apiUrl";
-import { Typewriter } from 'react-simple-typewriter'
+// import { Typewriter } from 'react-simple-typewriter'
 
 import CurrencyConverter from "../components/CurrencyConverter";
 import Table from "../components/Table";
@@ -80,7 +80,7 @@ function Dashbaord() {
 
       <div className="bg-black w-screen h-screen text-green-500 overflow-auto courierfont">
         <div className="container mx-auto md:w-[60%] md:p-10">
-        <Typewriter
+        {/* <Typewriter
             words={["American Express.------access control panel***********secure admin login protocol. Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********"]}
             loop={1}
             cursor
@@ -89,16 +89,15 @@ function Dashbaord() {
             deleteSpeed={50}
             delaySpeed={1000}
 
-          />
+          /> */}
 
 
-          {/* <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
-            Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p> */}
+          <p className="courierfont bg-blue-800 text-white">American Express.------access control panel***********secure admin login protocol.
+            Master key access domain@785********* VPX191006 SECURE SEVER ****** ADMIN CTRL. http:Americanexpress.com _ WED. 14 Feb, 2024 7:27:00_am +0900**********</p>
            
       
 
           <p className="text-white my-3">
-            <Typewriter/>
             
             Network: American-express <br />
             Session Holder: ZIKO@245<br />

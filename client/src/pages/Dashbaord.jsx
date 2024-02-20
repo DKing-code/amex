@@ -13,6 +13,7 @@ import DepositModal from "../components/DepositModal";
 import LoaderComp from "../components/Loader";
 
 import { Modal, Button, ButtonToolbar, Placeholder } from "rsuite";
+import CountUp from 'react-countup';
 
 function Dashbaord() {
   const [open, setOpen] = React.useState(false);
@@ -90,6 +91,7 @@ function Dashbaord() {
             delaySpeed={1000}
 
           />
+          
 
 
           <p className="text-white my-3">
@@ -235,12 +237,18 @@ function Dashbaord() {
             /> <br />
           </p>
 
+          <div>
+          
+          </div>
+
           <div className="my-5">
             {
               cards && cards?.map((detail, index) => {
+                let amountString = detail.cardLimit
+                let formattedAmount = amountString.replace(/,/g, "");
                 return cards.length >= 1 && (
                   <div key={index} className="my-2 border p-2">
-                    <p className="my-0">Receiver / Card Number : {detail?.cardNumber}</p>
+                    <p className="my-0">Receiver / Card Number : {detail?.cardNumber} </p>
                     <p className="my-0">Receiver / Card Holder Name : {detail.cardHolderName}</p>
                     <p className="my-0">Receiver / Card Expiration : {detail.expiryDate}</p>
                     <p className="my-0">Receiver / Card Type : {detail.cardType}</p>
@@ -249,18 +257,18 @@ function Dashbaord() {
                     <p className="my-0">Receiver / ISO Country A2 Code : {detail.ISOCountryA2}</p>
                     <p className="my-0">Receiver / ISO Country A3 Code    :   {detail.ISOCountryA3}</p>
                     <p className="my-0">Receiver / ISO Country Number : {detail.ISOCountryNumber}</p>
-                    <p className="my-0">Receiver / Amount : {detail.currency} {detail.cardLimit}</p>
+                    <p className="my-0 bg-red-600 text-white max-w-fit">Receiver / Amount : {detail.currency} <CountUp start={-500} duration={5.75} decimals={2} end={formattedAmount}/> </p>
                     <p className="my-0">Receiver / Approval Code : {detail.approcalCode}</p>
                     <p className="my-0">Receiver / Global Time Transfer : {'123'}</p>
                     <p className="my-0">Receiver / Status Transaction :{detail.time}</p>
                     <p className="my-0">Receiver / Date : {detail.date}</p>
                     <p className="my-0">Start Time : {detail.startTime}    |  Finish Time : {detail.finishTime} </p>
 
-                    <div className="md:flex flex-wrap gap-5 bg-green-600 text-white text-center">
-                      <p className="p-2 flex-1 md:border-e-2 border-b-2" onClick={() => handleOpen()}>Log In</p>
-                      <p className="p-2 flex-1  md:border-e-2 border-b-2" onClick={() => handleOpen2()}>ISSUE TO NEW CARD</p>
-                      <p className="p-2 flex-1  md:border-e-2 border-b-2" onClick={() => handleOpen3()}>ADD TO EXTERNAL ACCOUNT</p>
-                      <p className="p-2 flex-1  " onClick={() => handleOpen4()}>REQUEST CARD CVV</p>
+                    <div className="md:flex flex-wrap gap-5 text-white text-center my-4">
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg hover:bg-green-800" onClick={() => handleOpen()}>Log In</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen2()}>ISSUE TO NEW CARD</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen3()}>ADD TO EXTERNAL ACCOUNT</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen4()}>REQUEST CARD CVV</button>
                     </div>
                   </div>
                 )
@@ -294,39 +302,39 @@ function Dashbaord() {
         </Modal.Body>
       </Modal>
 
-      <Modal open={open2} onClose={handleClose2} className="bg-black text-green-600">
+      <Modal open={open2} onClose={handleClose2} className="rs-theme-dark bg-black">
         <Modal.Header>
           <Modal.Title>Enter Network CVV</Modal.Title>
         </Modal.Header>
         <Modal.Body className="">
           <form className="flex flex-col">
-            <input type="text" className="border p-2 rounded my-4" placeholder="CVV" required />
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="CVV" required />
             <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Activate</button>
           </form>
         </Modal.Body>
       </Modal>
 
-      <Modal open={open3} onClose={handleClose3} className="bg-black text-green-600">
+      <Modal open={open3} onClose={handleClose3} className="rs-theme-dark bg-black">
         <Modal.Header>
           <Modal.Title>Enter bank ISO</Modal.Title>
         </Modal.Header>
         <Modal.Body className="">
           <form className="flex flex-col">
-            <input type="password" className="border p-2 rounded my-4" placeholder="Account Name" required />
-            <input type="password" className="border p-2 rounded my-4" placeholder="Account number" required />
+            <input type="password" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account Name" required />
+            <input type="password" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account number" required />
             <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Activate</button>
           </form>
         </Modal.Body>
       </Modal>
 
-      <Modal open={open4} onClose={handleClose4} className="bg-black text-green-600">
+      {/* <Modal open={open4} onClose={handleClose4} className="rs-theme-dark bg-black">
         <Modal.Header>
           <Modal.Title>Card Details</Modal.Title>
         </Modal.Header>
         <Modal.Body className="">
           4
         </Modal.Body>
-      </Modal>
+      </Modal> */}
 
     </div>
   );

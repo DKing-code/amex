@@ -76,7 +76,7 @@ function Dashbaord() {
     }
     getAcc()
     getCards()
-  }, [])
+  }, [logout])
 
 
   return (

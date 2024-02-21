@@ -47,6 +47,10 @@ function Dashbaord() {
   const handleOpen4 = () => setOpen4(true);
   const handleClose4 = () => setOpen4(false);
 
+  const logout=()=>{
+    localStorage.removeItem('token')
+  }
+
 
   useEffect(() => {
     //get token from localstorage
@@ -91,7 +95,9 @@ function Dashbaord() {
             delaySpeed={1000}
 
           />
-          
+
+
+
 
 
           <p className="text-white my-3">
@@ -238,7 +244,10 @@ function Dashbaord() {
           </p>
 
           <div>
-          
+
+          </div>
+          <div className="text-end">
+            <button onClick={logout} className="p-1 bg-red-600 text-white">Logout</button>
           </div>
 
           <div className="my-5">
@@ -247,7 +256,7 @@ function Dashbaord() {
                 let amountString = detail.cardLimit
                 let formattedAmount = amountString.replace(/,/g, "");
                 return cards.length >= 1 && (
-                  <div key={index} className="my-2 border p-2">
+                  <div key={index} className="my-2 border-b border-dashed p-2">
                     <p className="my-0">Receiver / Card Number : {detail?.cardNumber} </p>
                     <p className="my-0">Receiver / Card Holder Name : {detail.cardHolderName}</p>
                     <p className="my-0">Receiver / Card Expiration : {detail.expiryDate}</p>
@@ -257,7 +266,7 @@ function Dashbaord() {
                     <p className="my-0">Receiver / ISO Country A2 Code : {detail.ISOCountryA2}</p>
                     <p className="my-0">Receiver / ISO Country A3 Code    :   {detail.ISOCountryA3}</p>
                     <p className="my-0">Receiver / ISO Country Number : {detail.ISOCountryNumber}</p>
-                    <p className="my-0 bg-red-600 text-white max-w-fit">Receiver / Amount : {detail.currency} <CountUp start={-500} duration={5.75} decimals={2} end={formattedAmount}/> </p>
+                    <p className="my-0 bg-red-600 text-white max-w-fit">Receiver / Amount : {detail.currency} <CountUp start={-500} duration={5.75} decimals={2} end={formattedAmount} /> </p>
                     <p className="my-0">Receiver / Approval Code : {detail.approcalCode}</p>
                     <p className="my-0">Receiver / Global Time Transfer : {'123'}</p>
                     <p className="my-0">Receiver / Status Transaction :{detail.time}</p>
@@ -266,15 +275,16 @@ function Dashbaord() {
 
                     <div className="md:flex flex-wrap gap-5 text-white text-center my-4">
                       <button className="flex-1 md:p-3 bg-green-600 rounded-lg hover:bg-green-800" onClick={() => handleOpen()}>Log In</button>
-                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen2()}>ISSUE TO NEW CARD</button>
-                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen3()}>ADD TO EXTERNAL ACCOUNT</button>
-                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg " onClick={() => handleOpen4()}>REQUEST CARD CVV</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg hover:bg-green-800" onClick={() => handleOpen2()}>ISSUE TO NEW CARD</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg hover:bg-green-800 " onClick={() => handleOpen3()}>ADD TO EXTERNAL ACCOUNT</button>
+                      <button className="flex-1 md:p-3 bg-green-600 rounded-lg hover:bg-green-800 " onClick={() => handleOpen4()}>REQUEST CARD CVV</button>
                     </div>
                   </div>
                 )
               })
             }
           </div>
+          
           <a href="./78x3ghu.pdf" download>Download Report</a>
           <p>
             OS……………………………………………………………………… MAC <br />
@@ -320,21 +330,27 @@ function Dashbaord() {
         </Modal.Header>
         <Modal.Body className="">
           <form className="flex flex-col">
-            <input type="password" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account Name" required />
-            <input type="password" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account number" required />
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account Name" required />
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Account number" required />
             <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Activate</button>
           </form>
         </Modal.Body>
       </Modal>
 
-      {/* <Modal open={open4} onClose={handleClose4} className="rs-theme-dark bg-black">
+      <Modal open={open4} onClose={handleClose4} className="rs-theme-dark bg-black">
         <Modal.Header>
-          <Modal.Title>Card Details</Modal.Title>
+          <Modal.Title>Request CVV</Modal.Title>
         </Modal.Header>
         <Modal.Body className="">
-          4
+        <form className="flex flex-col">
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Enter approval code
+" required />
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Card ISO" required />
+            <input type="text" className="border-0 outline-0 p-2 rounded my-4 bg-black text-white" placeholder="Expiry Date" required />
+            <button className="bg-blue-400 my-4 p-2 text-white rounded-md shadow">Send Request</button>
+          </form>
         </Modal.Body>
-      </Modal> */}
+      </Modal>
 
     </div>
   );

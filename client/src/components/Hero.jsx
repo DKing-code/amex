@@ -48,7 +48,7 @@ const Hero = () => {
 
       <div className='bg-white dark:bg-black p-5 md:max-w-[30%] container md:mx-auto rounded-lg'>
         <h1 className="text-xl font-bold my-5 text-center leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-          Sign in to Web Terminal
+          Sign in to Server
         </h1>
         <form className="space-y-4 md:space-y-6 " onSubmit={handleLogin}>
           {err ? <p className="text-red-600 text-center">{errMsg}</p> : ''}
